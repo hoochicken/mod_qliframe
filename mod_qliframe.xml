@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	client="site"
+	method="upgrade">
+	<name>qliframe</name>
+	<author>Mareike Riegel</author>
+	<creationDate>2022</creationDate>
+	<copyright>ql.de</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>mareike.riegel@ql.de</authorEmail>
+	<authorUrl>ql.de</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_QLIFRAME_XML_DESCRIPTION</description>
+	<updateservers>
+		<server type="extension" priority="1" name="qliframe - Updates">https://raw.githubusercontent.com/hoochicken/mod_qliframe/main/_jupdate/mod_qlform.xml</server>
+    </updateservers>
+	<files>
+		<filename module="mod_qliframe">mod_qliframe.php</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<folder>php</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_qliframe.xml</filename>
+	</files>
+	<media folder="media" destination="mod_qliframe">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_qliframe.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_qliframe.sys.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.mod_qliframe.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.mod_qliframe.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_qliframe/php/fields" addrulepath="/modules/mod_qliframe/php/rules">
+            <fieldset name="basic">
+				<field
+						name="iframe_url"
+						type="textarea"
+						label="MOD_QLIFRAME_IFRAMEURL_LABEL"
+						description="MOD_QLIFRAME_IFRAMEURL_DESC"
+				/>
+				<field
+						name="iframe_attributes"
+						type="textarea"
+						default="allowfullscreen"
+						label="MOD_QLIFRAME_IFRAMEATTRIBUTES_LABEL"
+						description="MOD_QLIFRAME_IFRAMEATTRIBUTES_DESC"
+				/>
+				<field
+						name="clicksolution"
+						type="list"
+						label="MOD_QLIFRAME_CLICKSOLUTION_LABEL"
+						description="MOD_QLIFRAME_CLICKSOLUTION_DESC"
+						default="0">
+					<option value="0">MOD_QLIFRAME_ZERO</option>
+					<option value="1">MOD_QLIFRAME_ONE</option>
+					<option value="2">MOD_QLIFRAME_TWO</option>
+					<option value="3">MOD_QLIFRAME_THREE</option>
+					<option value="100">MOD_QLIFRAME_PITA</option>
+				</field>
+				<field
+						name="image"
+						type="media"
+						label="MOD_QLIFRAME_IMAGE_LABEL"
+						description="MOD_QLIFRAME_IMAGE_DESC" />
+			</fieldset>
+			<fieldset name="texts">
+				<field
+						name="info"
+						type="editor"
+						filter="safehtml"
+						label="MOD_QLIFRAME_INFO_LABEL"
+						description="MOD_QLIFRAME_INFO_DESC"
+				/>
+				<field name="spacerprivacybutton" type="spacer" label="MOD_QLIFRAME_SPACERPRIVACYBUTTON_LABEL" />
+				<field
+						name="privacybutton"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						label="MOD_QLIFRAME_PRIVACYBUTTON_LABEL"
+						description="MOD_QLIFRAME_PRIVACYBUTTON_DESC"
+						default="1">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+						name="privacybuttonlabel"
+						type="text"
+						label="MOD_QLIFRAME_PRIVACYBUTTONLABEL_LABEL"
+						description="MOD_QLIFRAME_PRIVACYBUTTONLABEL_DESC"
+				/>
+				<field
+						name="privacyItemId"
+						type="menuitem"
+						label="MOD_QLIFRAME_PRIVACYLINK_LABEL"
+						description="MOD_QLIFRAME_PRIVACYLINK_DESC"
+				/>
+				<field name="spaceradditionalscripts" type="spacer" label="MOD_QLIFRAME_SPACERADDITIONALSCRIPTS_LABEL" />
+				<field
+						name="scripts_afterclickloaded"
+						type="textarea"
+						filter="raw"
+						label="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_LABEL"
+						description="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_DESC"
+				/>
+            </fieldset>
+			<fieldset name="one">
+				<field
+						name="mapbuttonlabel"
+						type="text"
+						label="MOD_QLIFRAME_IFRAMEBUTTONLABEL_LABEL"
+						description="MOD_QLIFRAME_IFRAMEBUTTONLABEL_DESC"
+				/>
+			</fieldset>
+			<fieldset name="two">
+				<field
+						name="confirmtext"
+						type="textarea"
+						label="MOD_QLIFRAME_CONFIRMTEXT_LABEL"
+						description="MOD_QLIFRAME_CONFIRMTEXT_DESC"
+				/>
+            </fieldset>
+			<fieldset name="three">
+				<field
+						name="privacyReadText"
+						type="editor"
+						filter="safehtml"
+						label="MOD_QLIFRAME_PRIVACYREADTEXT_LABEL"
+						description="MOD_QLIFRAME_PRIVACYREADTEXT_DESC"
+				/>
+            </fieldset>
+			<fieldset name="pita">
+				<field
+						name="pitatexts"
+						type="textarea"
+						rows="10"
+						default="Are you sure, you want to proceed?&#13;&#10;Really??&#13;&#10;Just asking just in case you changed your mind&#13;&#10;Legally I need you ONE more time to consent ... SORRY!&#13;&#10;Haha, and you believed that!!!&#13;&#10;You have to take this serous, so confirm you have read the private policy and also UNDERSTOOD it&#13;&#10;Aaaaaaaaaaahahhahahhah!!!"
+						label="MOD_QLIFRAME_PITATEXTS_LABEL"
+						description="MOD_QLIFRAME_PITATEXTS_DESC"
+				/>
+            </fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
