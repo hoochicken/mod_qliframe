@@ -24,8 +24,7 @@ function qliframeLoadIframe1ClickSolution(uniquefier, iframe_url, iframe_attribu
   qliframeHideImagebutton(uniquefier);
 
   // build iframe html, actually add the html of the iframe
-  let htmlIframe = qliframeGetIframeHtml(iframe_url, iframe_attributes);
-  document.getElementById(iframeId).insertAdjacentHTML('beforeend', htmlIframe);
+  qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
 }
 
 /**
@@ -42,7 +41,7 @@ function qliframeLoadIframe2ClickSolution(uniquefier, iframe_url, iframe_attribu
   let iframeId = 'qliframe_iframe_' + uniquefier;
 
   if (!confirm(confirmtext)) {
-    document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+    qliframeEmptyWrapper(iframeId);
     return false;
   }
 
@@ -52,8 +51,7 @@ function qliframeLoadIframe2ClickSolution(uniquefier, iframe_url, iframe_attribu
   qliframeHideImagebutton(uniquefier);
 
   // build iframe html, actually add the html of the iframe
-  let htmlIframe = qliframeGetIframeHtml(iframe_url, iframe_attributes);
-  document.getElementById(iframeId).insertAdjacentHTML('beforeend', htmlIframe);
+  qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
 }
 
 /**
@@ -77,7 +75,7 @@ function qliframeLoadIframe3ClickSolution(uniquefier, iframe_url, iframe_attribu
 
   // remove iframe from iframe_holder
   if (!confirm(confirmtext)) {
-    document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+    qliframeEmptyWrapper(iframeId);
     return false;
   }
 
@@ -87,8 +85,7 @@ function qliframeLoadIframe3ClickSolution(uniquefier, iframe_url, iframe_attribu
   qliframeHideImagebutton(uniquefier);
 
   // build iframe html, actually add the html of the iframe
-  let htmlIframe = qliframeGetIframeHtml(iframe_url, iframe_attributes);
-  document.getElementById(iframeId).insertAdjacentHTML('beforeend', htmlIframe);
+  qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
 }
 
 /**
@@ -112,7 +109,7 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
 
   // remove iframe from iframe_holder
   if (!confirm(confirmtext)) {
-    document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+    qliframeEmptyWrapper(iframeId);
     return false;
   }
 
@@ -122,7 +119,7 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
       confirmtext= pitatextsSplitted[i];
       // remove iframe from iframe_holder
       if (!confirm(confirmtext)) {
-        document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+        qliframeEmptyWrapper(iframeId);
         return false;
       }
     }
@@ -134,8 +131,7 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
   qliframeHideImagebutton(uniquefier);
 
   // build iframe html, actually add the html of the iframe
-  let htmlIframe = qliframeGetIframeHtml(iframe_url, iframe_attributes);
-  document.getElementById(iframeId).insertAdjacentHTML('beforeend', htmlIframe);
+  qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
 }
 
 /**
@@ -204,6 +200,31 @@ function qliframeGetIframeHtml(iframe_url, iframe_attributes) {
 function qliframeHideImagebutton(uniquefier)
 {
   let imageButtonId = 'qliframe_button_image_' + uniquefier;
-  if ('undefined' === typeof document.getElementById(imageButtonId)) return;
+  if (null === document.getElementById(imageButtonId)) return;
   document.getElementById(imageButtonId).style.display = 'none';
+}
+
+/**
+ * checks whether privacy is read
+ * removes button property 'disabled' from "Display map"-button
+ * @returns {boolean}
+ * @param iframeId
+ * @param iframe_url
+ * @param iframe_attributes
+ */
+function qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes)
+{
+  // build iframe html, actually add the html of the iframe
+  let htmlIframe = qliframeGetIframeHtml(iframe_url, iframe_attributes);
+  document.getElementById(iframeId).insertAdjacentHTML('beforeend', htmlIframe);
+}
+
+/**
+ * checks whether privacy is read
+ * removes button property 'disabled' from "Display map"-button
+ * @returns {boolean}
+ */
+function qliframeEmptyWrapper(iframeId)
+{
+  document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
 }
