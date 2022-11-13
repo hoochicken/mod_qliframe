@@ -162,14 +162,18 @@ function qliframeEnableButton(uniquefier) {
   let imageButtonId = 'qliframe_button_image_' + uniquefier;
 
   if (!document.getElementById(inputId).checked) {
+    // common button
     if (null !== document.getElementById(buttonId)) document.getElementById(buttonId).disabled = true;
+    // image button
     if (null !== document.getElementById(imageButtonId)){
       document.getElementById(imageButtonId).style.display = 'none';
       document.getElementById(imageButtonId).disabled = true;
     }
     return false;
   }
+  // common button
   if (null !== document.getElementById(buttonId)) document.getElementById(buttonId).disabled = false;
+  // image button
   if (null !== document.getElementById(imageButtonId)) {
     document.getElementById(imageButtonId).style.display = 'block';
     document.getElementById(imageButtonId).disabled = false;
