@@ -69,6 +69,13 @@
 						type="media"
 						label="MOD_QLIFRAME_IMAGE_LABEL"
 						description="MOD_QLIFRAME_IMAGE_DESC" />
+				<field
+						name="scripts_afterclickloaded"
+						type="textarea"
+						filter="raw"
+						label="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_LABEL"
+						description="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_DESC"
+				/>
 			</fieldset>
 			<fieldset name="texts">
 				<field
@@ -100,14 +107,6 @@
 						type="menuitem"
 						label="MOD_QLIFRAME_PRIVACYLINK_LABEL"
 						description="MOD_QLIFRAME_PRIVACYLINK_DESC"
-				/>
-				<field name="spaceradditionalscripts" type="spacer" label="MOD_QLIFRAME_SPACERADDITIONALSCRIPTS_LABEL" />
-				<field
-						name="scripts_afterclickloaded"
-						type="textarea"
-						filter="raw"
-						label="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_LABEL"
-						description="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_DESC"
 				/>
             </fieldset>
 			<fieldset name="one">
