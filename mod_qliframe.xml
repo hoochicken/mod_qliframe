@@ -79,6 +79,16 @@
 						label="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_LABEL"
 						description="MOD_QLIFRAME_SCRIPTSAFTERCLICKLOADED_DESC"
 				/>
+				<field
+						name="image_button"
+						type="media"
+						label="MOD_QLIFRAME_IMAGEBUTTON_LABEL"
+						description="MOD_QLIFRAME_IMAGEBUTTON_DESC">
+					<option value="">MOD_QLIFRAME_CUSTOM</option>
+					<option value="youtube">MOD_QLIFRAME_YOUTUBE</option>
+					<option value="vimeo">MOD_QLIFRAME_VIMEO</option>
+					<option value="googlemaps">MOD_QLIFRAME_GOOGLEMAPS</option>
+				</field>
 			</fieldset>
 			<fieldset name="texts">
 				<field
