@@ -19,6 +19,7 @@
 		<filename module="mod_qliframe">mod_qliframe.php</filename>
 		<folder>_jupdate</folder>
 		<folder>css</folder>
+		<folder>images</folder>
 		<folder>js</folder>
 		<folder>language</folder>
 		<folder>tmpl</folder>
@@ -66,6 +67,17 @@
 					<option value="2">MOD_QLIFRAME_TWO</option>
 					<option value="3">MOD_QLIFRAME_THREE</option>
 					<option value="100">MOD_QLIFRAME_PITA</option>
+				</field>
+				<field
+						name="image_button"
+						type="list"
+						label="MOD_QLIFRAME_IMAGEBUTTON_LABEL"
+						description="MOD_QLIFRAME_IMAGEBUTTON_DESC">
+					<option value="">MOD_QLIFRAME_JUSTBUTTON</option>
+					<option value="youtube">MOD_QLIFRAME_YOUTUBE</option>
+					<option value="vimeo">MOD_QLIFRAME_VIMEO</option>
+					<option value="googlemaps">MOD_QLIFRAME_GOOGLEMAPS</option>
+					<option value="custom">MOD_QLIFRAME_CUSTOM</option>
 				</field>
 				<field
 						name="image"

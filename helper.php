@@ -17,6 +17,7 @@ class modQliframeHelper
     public $module;
     public $params;
     public $wa;
+    public $img_sfx = 'png';
 
 	function __construct($module, $params, $wa)
     {
@@ -43,8 +44,9 @@ class modQliframeHelper
         $privacyReadTextDisplay = !empty(strip_tags($privacyReadText));
         $iframe_url = $params->get('iframe_url', '');
         $iframe_attributes = str_replace('"', '\'', addslashes($params->get('iframe_attributes', '')));
-        $image = $params->get('image', '');
+        $image =  $this->getImagePath($params->get('image', ''), $imageButton = $params->get('image_button', ''));
         $imageSrcAttribute = sprintf('src="%s"', $image);
+        $imageButtonDisplay = !empty($image);
         $infotext = $params->get('info', '');
         $infotextDisplay = !empty(strip_tags($infotext));
         $iframebuttonlabel = $this->getTextByParamOrLanguageOverride('iframebuttonlabel', Text::_('MOD_QLIFRAME_IFRAMEBUTTONLABELDEFAULT'));
@@ -66,6 +68,8 @@ class modQliframeHelper
             'iframe_url' => $iframe_url,
             'iframe_attributes' => $iframe_attributes,
             'image' => $image,
+            'imageButton' => $imageButton,
+            'imageButtonDisplay' => $imageButtonDisplay,
             'imageSrcAttribute' => $imageSrcAttribute,
             'infotext' => $infotext,
             'infotextDisplay' => $infotextDisplay,
@@ -86,7 +90,7 @@ class modQliframeHelper
      * @param string $default
      * @return string
      */
-    private function getTextByParamOrLanguageOverride(string $parameterName, string $default = '')
+    private function getTextByParamOrLanguageOverride(string $parameterName, string $default = ''): string
     {
         $value = $this->params->get($parameterName, $default);
         $keyLanguage = trim(strip_tags($value));
@@ -95,7 +99,7 @@ class modQliframeHelper
         return $value;
     }
 
-    public function addStylesAndScripts($clicksolution, $scripts = '')
+    public function addStylesAndScripts(int $clicksolution, string $scripts = '')
     {
         $this->wa->registerStyle('mod_qliframe', 'mod_qliframe/styles.css');
         $this->wa->useStyle('mod_qliframe');
@@ -106,5 +110,12 @@ class modQliframeHelper
             $this->wa->registerScript('mod_qliframe', 'mod_qliframe/script.js');
             $this->wa->useScript('mod_qliframe');
         }
+    }
+
+    private function getImagePath(string $customMedia, string $imagePredefined): ?string
+    {
+        if (empty($imagePredefined)) return null;
+        if ('custom' === $imagePredefined && !empty($customMedia)) return JURI::root() . '/' . $customMedia;
+        return JURI::root() . 'modules/' . $this->module->module . '/images/' . $imagePredefined . '.' . $this->img_sfx;
     }
 }
