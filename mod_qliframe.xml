@@ -74,10 +74,10 @@
 						label="MOD_QLIFRAME_IMAGEBUTTON_LABEL"
 						description="MOD_QLIFRAME_IMAGEBUTTON_DESC">
 					<option value="">MOD_QLIFRAME_JUSTBUTTON</option>
-					<option value="custom">MOD_QLIFRAME_CUSTOM</option>
 					<option value="youtube">MOD_QLIFRAME_YOUTUBE</option>
 					<option value="vimeo">MOD_QLIFRAME_VIMEO</option>
 					<option value="googlemaps">MOD_QLIFRAME_GOOGLEMAPS</option>
+					<option value="custom">MOD_QLIFRAME_CUSTOM</option>
 				</field>
 				<field
 						name="image"

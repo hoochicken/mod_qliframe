@@ -115,7 +115,7 @@ class modQliframeHelper
     private function getImagePath(string $customMedia, string $imagePredefined): ?string
     {
         if (empty($imagePredefined)) return null;
-        if (!empty($customMedia)) return JURI::root() . '/' . $customMedia;
+        if ('custom' === $imagePredefined && !empty($customMedia)) return JURI::root() . '/' . $customMedia;
         return JURI::root() . 'modules/' . $this->module->module . '/images/' . $imagePredefined . '.' . $this->img_sfx;
     }
 }
