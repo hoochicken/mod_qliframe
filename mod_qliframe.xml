@@ -82,7 +82,7 @@
 				/>
 				<field
 						name="image_button"
-						type="media"
+						type="list"
 						label="MOD_QLIFRAME_IMAGEBUTTON_LABEL"
 						description="MOD_QLIFRAME_IMAGEBUTTON_DESC">
 					<option value="">MOD_QLIFRAME_CUSTOM</option>

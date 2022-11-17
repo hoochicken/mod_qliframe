@@ -11,3 +11,4 @@ div.qliframe .privacyReadText input {float:left; display:inline-block; margin: 8
 div.qliframe .privacyReadText label {float:left; display:inline-block;}
 div.qliframe .qliframe_button {clear:both;}
 div.qliframe .qliframe.iframe_wrapper {float:left;}
+div.qliframe .qliframe.iframe_wrapper input {border: 4px solid #777; border-radius:15px; overflow:hidden; width:100%;}
