@@ -126,7 +126,7 @@
             </fieldset>
 			<fieldset name="one">
 				<field
-						name="mapbuttonlabel"
+						name="iframebuttonlabel"
 						type="text"
 						label="MOD_QLIFRAME_IFRAMEBUTTONLABEL_LABEL"
 						description="MOD_QLIFRAME_IFRAMEBUTTONLABEL_DESC"
