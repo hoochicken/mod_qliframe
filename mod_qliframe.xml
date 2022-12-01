@@ -93,13 +93,6 @@
 				/>
 			</fieldset>
 			<fieldset name="texts">
-				<field
-						name="info"
-						type="editor"
-						filter="safehtml"
-						label="MOD_QLIFRAME_INFO_LABEL"
-						description="MOD_QLIFRAME_INFO_DESC"
-				/>
 				<field name="spacerprivacybutton" type="spacer" label="MOD_QLIFRAME_SPACERPRIVACYBUTTON_LABEL" />
 				<field
 						name="privacybutton"
@@ -123,7 +116,15 @@
 						label="MOD_QLIFRAME_PRIVACYLINK_LABEL"
 						description="MOD_QLIFRAME_PRIVACYLINK_DESC"
 				/>
-            </fieldset>
+				<field name="spacerinformation" type="spacer" label="MOD_QLIFRAME_SPACERINFORMATION_LABEL" />
+				<field
+						name="info"
+						type="editor"
+						filter="safehtml"
+						label="MOD_QLIFRAME_INFO_LABEL"
+						description="MOD_QLIFRAME_INFO_DESC"
+				/>
+			</fieldset>
 			<fieldset name="one">
 				<field
 						name="iframebuttonlabel"
