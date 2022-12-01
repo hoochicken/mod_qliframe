@@ -61,7 +61,7 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
             </button>
         <?php endif; ?>
 
-        <?php if (1 <= $clicksolution && empty($image)) : ?>
+        <?php if (1 <= $clicksolution) : ?>
             <button <?php echo $iframebuttonDisabled; ?> id="qliframe_button_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button">
                 <?php echo $iframebuttonlabel; ?>
             </button>

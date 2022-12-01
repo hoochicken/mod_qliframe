@@ -35,7 +35,7 @@ class modQliframeHelper
         $params = $this->params;
 
         $clicksolution = (int) $params->get('clicksolution', 0);
-        $confirmtext = str_replace(['\'', '"'], [], $this->getTextByParamOrLanguageOverride('confirmtext', Text::_('MOD_QLIFRAME_CONFIRMTEXTDEFAULT')));
+        $confirmtext = str_replace(['\'', '"', "\n", "\r"], [], strip_tags($this->getTextByParamOrLanguageOverride('confirmtext', Text::_('MOD_QLIFRAME_CONFIRMTEXTDEFAULT'))));
         $iframe_url = $params->get('iframe_url', '');
         $iframe_attributes = str_replace('"', '\'', addslashes($params->get('iframe_attributes', '')));
         $iframebuttonlabel = $this->getTextByParamOrLanguageOverride('iframebuttonlabel', Text::_('MOD_QLIFRAME_IFRAMEBUTTONLABELDEFAULT'));
