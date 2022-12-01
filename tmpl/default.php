@@ -56,13 +56,13 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
     <?php endif; ?>
     <div class="buttons">
         <?php if ($privacybutton) : ?>
-            <button onclick="window.open('<?php echo $privacylinkRoute; ?>', '_blank')">
+            <button class="btn btn-secondary" onclick="window.open('<?php echo $privacylinkRoute; ?>', '_blank')">
                 <?php echo $privacybuttonlabel; ?>
             </button>
         <?php endif; ?>
 
         <?php if (1 <= $clicksolution) : ?>
-            <button <?php echo $iframebuttonDisabled; ?> id="qliframe_button_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button">
+            <button class="btn btn-primary" <?php echo $iframebuttonDisabled; ?> id="qliframe_button_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button">
                 <?php echo $iframebuttonlabel; ?>
             </button>
         <?php endif; ?>
