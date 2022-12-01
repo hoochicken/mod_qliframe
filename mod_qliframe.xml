@@ -46,6 +46,7 @@
 				<field
 						name="iframe_url"
 						type="textarea"
+						required="true"
 						label="MOD_QLIFRAME_IFRAMEURL_LABEL"
 						description="MOD_QLIFRAME_IFRAMEURL_DESC"
 				/>
