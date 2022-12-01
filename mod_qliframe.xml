@@ -10,7 +10,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>mareike.riegel@ql.de</authorEmail>
 	<authorUrl>ql.de</authorUrl>
-	<version>1.2.2</version>
+	<version>1.3.0</version>
 	<description>MOD_QLIFRAME_XML_DESCRIPTION</description>
 	<updateservers>
 		<server type="extension" priority="1" name="qliframe - Updates">https://raw.githubusercontent.com/hoochicken/mod_qliframe/main/_jupdate/mod_qlform.xml</server>
@@ -46,6 +46,7 @@
 				<field
 						name="iframe_url"
 						type="textarea"
+						required="true"
 						label="MOD_QLIFRAME_IFRAMEURL_LABEL"
 						description="MOD_QLIFRAME_IFRAMEURL_DESC"
 				/>
@@ -93,13 +94,6 @@
 				/>
 			</fieldset>
 			<fieldset name="texts">
-				<field
-						name="info"
-						type="editor"
-						filter="safehtml"
-						label="MOD_QLIFRAME_INFO_LABEL"
-						description="MOD_QLIFRAME_INFO_DESC"
-				/>
 				<field name="spacerprivacybutton" type="spacer" label="MOD_QLIFRAME_SPACERPRIVACYBUTTON_LABEL" />
 				<field
 						name="privacybutton"
@@ -123,7 +117,15 @@
 						label="MOD_QLIFRAME_PRIVACYLINK_LABEL"
 						description="MOD_QLIFRAME_PRIVACYLINK_DESC"
 				/>
-            </fieldset>
+				<field name="spacerinformation" type="spacer" label="MOD_QLIFRAME_SPACERINFORMATION_LABEL" />
+				<field
+						name="info"
+						type="editor"
+						filter="safehtml"
+						label="MOD_QLIFRAME_INFO_LABEL"
+						description="MOD_QLIFRAME_INFO_DESC"
+				/>
+			</fieldset>
 			<fieldset name="one">
 				<field
 						name="iframebuttonlabel"
