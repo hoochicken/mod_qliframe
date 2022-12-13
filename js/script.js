@@ -18,6 +18,8 @@ function qliframeLoadIframe1ClickSolution(uniquefier, iframe_url, iframe_attribu
   // get id of iframe
   let iframeId = 'qliframe_iframe_' + uniquefier;
 
+  qliframeDisplayElementById(iframeId);
+
   // some scripte need to be loaded aditionally to iframe
   // e. g. vimeo needs this whyever
   qliframeAddScriptToDoms(scripts_afterclickloaded);
@@ -39,6 +41,8 @@ function qliframeLoadIframe2ClickSolution(uniquefier, iframe_url, iframe_attribu
 {
   // get id of iframe
   let iframeId = 'qliframe_iframe_' + uniquefier;
+
+  qliframeDisplayElementById(iframeId);
 
   if (!confirm(confirmtext)) {
     qliframeEmptyWrapper(iframeId);
@@ -72,6 +76,8 @@ function qliframeLoadIframe3ClickSolution(uniquefier, iframe_url, iframe_attribu
   // disable button
   let inputId = 'qliframe_readprivacy_' + uniquefier;
   document.getElementById(inputId).disabled = true;
+
+  qliframeDisplayElementById(iframeId);
 
   // remove iframe from iframe_holder
   if (!confirm(confirmtext)) {
@@ -107,6 +113,8 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
   let inputId = 'qliframe_readprivacy_' + uniquefier;
   document.getElementById(inputId).disabled = true;
 
+  qliframeDisplayElementById(iframeId);
+
   // remove iframe from iframe_holder
   if (!confirm(confirmtext)) {
     qliframeEmptyWrapper(iframeId);
@@ -132,6 +140,24 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
 
   // build iframe html, actually add the html of the iframe
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
+}
+
+/**
+ *
+ * @param elementId
+ */
+function qliframeDisplayElementById(elementId)
+{
+  document.getElementById(elementId).style.display = 'block';
+}
+
+/**
+ *
+ * @param elementId
+ */
+function qliframeHideElementById(elementId)
+{
+  document.getElementById(elementId).style.display = 'none';
 }
 
 /**
@@ -166,7 +192,7 @@ function qliframeEnableButton(uniquefier) {
     if (null !== document.getElementById(buttonId)) document.getElementById(buttonId).disabled = true;
     // image button
     if (null !== document.getElementById(imageButtonId)){
-      document.getElementById(imageButtonId).style.display = 'none';
+      qliframeHideElementById(imageButtonId);
       document.getElementById(imageButtonId).disabled = true;
     }
     return false;
@@ -175,7 +201,7 @@ function qliframeEnableButton(uniquefier) {
   if (null !== document.getElementById(buttonId)) document.getElementById(buttonId).disabled = false;
   // image button
   if (null !== document.getElementById(imageButtonId)) {
-    document.getElementById(imageButtonId).style.display = 'block';
+    qliframeDisplayElementById(imageButtonId);
     document.getElementById(imageButtonId).disabled = false;
   }
 }
@@ -205,7 +231,7 @@ function qliframeHideImagebutton(uniquefier)
 {
   let imageButtonId = 'qliframe_button_image_' + uniquefier;
   if (null === document.getElementById(imageButtonId)) return;
-  document.getElementById(imageButtonId).style.display = 'none';
+  qliframeHideElementById(imageButtonId);
 }
 
 /**

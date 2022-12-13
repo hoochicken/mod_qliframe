@@ -58,6 +58,13 @@
 						description="MOD_QLIFRAME_IFRAMEATTRIBUTES_DESC"
 				/>
 				<field
+						name="iframe_height"
+						filter="integer"
+						default="400"
+						label="MOD_QLIFRAME_IFRAMEHEIGHT_LABEL"
+						description="MOD_QLIFRAME_IFRAMEHEIGHT_DESC"
+				/>
+				<field
 						name="clicksolution"
 						type="list"
 						label="MOD_QLIFRAME_CLICKSOLUTION_LABEL"

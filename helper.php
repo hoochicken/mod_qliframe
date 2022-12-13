@@ -16,6 +16,7 @@ class modQliframeHelper
 {
     public $module;
     public $params;
+    /** @var WebAssetManager */
     public $wa;
     public $img_sfx = 'png';
 
@@ -101,8 +102,10 @@ class modQliframeHelper
 
     public function addStylesAndScripts(int $clicksolution, string $scripts = '')
     {
+        $height = (int) $this->params->get('iframe_height', 400);
         $this->wa->registerStyle('mod_qliframe', 'mod_qliframe/styles.css');
         $this->wa->useStyle('mod_qliframe');
+        if (0 < $height) $this->wa->addInlineStyle(sprintf('.qliframe iframe {height:%spx;}', $height));
         $this->wa->registerScript('mod_qliframe', 'mod_qliframe/script.js');
         $this->wa->useScript('mod_qliframe');
 
