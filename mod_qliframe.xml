@@ -10,7 +10,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>mareike.riegel@ql.de</authorEmail>
 	<authorUrl>ql.de</authorUrl>
-	<version>1.3.1</version>
+	<version>1.3.2</version>
 	<description>MOD_QLIFRAME_XML_DESCRIPTION</description>
 	<updateservers>
 		<server type="extension" priority="1" name="qliframe - Updates">https://raw.githubusercontent.com/hoochicken/mod_qliframe/main/_jupdate/mod_qlform.xml</server>
@@ -64,6 +64,16 @@
 						label="MOD_QLIFRAME_IFRAMEHEIGHT_LABEL"
 						description="MOD_QLIFRAME_IFRAMEHEIGHT_DESC"
 				/>
+				<field
+						name="iframe_position"
+						type="list"
+						default="bottom"
+						label="MOD_QLIFRAME_IFRAMEPOSITION_LABEL"
+						description="MOD_QLIFRAME_IFRAMEPOSITION_DESC"
+				>
+					<option value="bottom">MOD_QLIFRAME_BOTTOM</option>
+					<option value="top">MOD_QLIFRAME_TOP</option>
+				</field>
 				<field
 						name="clicksolution"
 						type="list"
