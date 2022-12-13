@@ -26,6 +26,7 @@ use Joomla\CMS\WebAsset\WebAssetManager;
 /** @var string $iframe_url */
 /** @var string $iframe_attributes */
 /** @var string $iframebuttonDisabled disabled | ''*/
+/** @var string $iframe_position */
 /** @var string $image */
 /** @var string $imageSrcAttribute */
 /** @var string $infotext */
@@ -44,6 +45,17 @@ $onclick = 'qliframeLoadIframe%sClickSolution(\'%s\', \'%s\', \'%s\', \'%s\', \'
 $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attributes, $scripts_afterclickloaded, $confirmtext, $pitatexts);
 ?>
 <div class="qliframe">
+    <?php if ('top' === $iframe_position) : ?>
+        <div class="qliframe iframe_wrapper <?php echo empty($image) ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
+            <?php if (1 <= $clicksolution && !empty($image)) : ?>
+                <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
+            <?php endif; ?>
+            <?php if (0 === $clicksolution) : ?>
+                <iframe id="qliframe_frame_<?php echo $unique; ?>" src="<?php echo $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
     <?php if ($infotextDisplay) : ?>
         <div class="info"><?php echo $infotext; ?></div>
     <?php endif; ?>
@@ -68,6 +80,7 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
         <?php endif; ?>
     </div>
 
+    <?php if ('bottom' === $iframe_position) : ?>
     <div class="qliframe iframe_wrapper <?php echo empty($image) ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
         <?php if (1 <= $clicksolution && !empty($image)) : ?>
             <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
@@ -76,4 +89,5 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
             <iframe id="qliframe_frame_<?php echo $unique; ?>" src="<?php echo $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
         <?php endif; ?>
     </div>
+    <?php endif; ?>
 </div>

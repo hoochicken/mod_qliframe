@@ -37,6 +37,7 @@ class modQliframeHelper
 
         $clicksolution = (int) $params->get('clicksolution', 0);
         $confirmtext = str_replace(['\'', '"', "\n", "\r"], [], strip_tags($this->getTextByParamOrLanguageOverride('confirmtext', Text::_('MOD_QLIFRAME_CONFIRMTEXTDEFAULT'))));
+        $iframe_position = $params->get('iframe_position', 'bottom');
         $iframe_url = $params->get('iframe_url', '');
         $iframe_attributes = str_replace('"', '\'', addslashes($params->get('iframe_attributes', '')));
         $iframebuttonlabel = $this->getTextByParamOrLanguageOverride('iframebuttonlabel', Text::_('MOD_QLIFRAME_IFRAMEBUTTONLABELDEFAULT'));
@@ -68,6 +69,7 @@ class modQliframeHelper
             'privacyReadTextDisplay' => $privacyReadTextDisplay,
             'iframe_url' => $iframe_url,
             'iframe_attributes' => $iframe_attributes,
+            'iframe_position' => $iframe_position,
             'image' => $image,
             'imageButton' => $imageButton,
             'imageButtonDisplay' => $imageButtonDisplay,
