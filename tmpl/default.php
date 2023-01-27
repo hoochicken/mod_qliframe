@@ -44,7 +44,7 @@ use Joomla\CMS\WebAsset\WebAssetManager;
 $onclick = 'qliframeLoadIframe%sClickSolution(\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')';
 $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attributes, $scripts_afterclickloaded, $confirmtext, $pitatexts);
 ?>
-<div class="qliframe">
+<div class="qliframe wrapper">
     <?php if ('top' === $iframe_position) : ?>
         <div class="qliframe iframe_wrapper <?php echo empty($image) ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
             <?php if (1 <= $clicksolution && !empty($image)) : ?>
