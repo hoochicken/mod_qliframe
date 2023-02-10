@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		mod_qliframe
- * @copyright	Copyright (C) 2022 ql.de All rights reserved.
+ * @copyright	Copyright (C) 2023 ql.de All rights reserved.
  * @author 		Mareike Riegel mareike.riegel@ql.de
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -46,7 +46,7 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
 ?>
 <div class="qliframe wrapper">
     <?php if ('top' === $iframe_position) : ?>
-        <div class="qliframe iframe_wrapper <?php echo empty($image) ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
+        <div class="qliframe iframe_wrapper <?php echo empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
             <?php if (1 <= $clicksolution && !empty($image)) : ?>
                 <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
             <?php endif; ?>
@@ -81,7 +81,7 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
     </div>
 
     <?php if ('bottom' === $iframe_position) : ?>
-    <div class="qliframe iframe_wrapper <?php echo empty($image) ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
+    <div class="qliframe iframe_wrapper <?php echo empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
         <?php if (1 <= $clicksolution && !empty($image)) : ?>
             <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
         <?php endif; ?>
