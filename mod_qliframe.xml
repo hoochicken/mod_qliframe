@@ -10,7 +10,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>mareike.riegel@ql.de</authorEmail>
 	<authorUrl>ql.de</authorUrl>
-	<version>1.3.4</version>
+	<version>1.4.0</version>
 	<description>MOD_QLIFRAME_XML_DESCRIPTION</description>
 	<updateservers>
 		<server type="extension" priority="1" name="qliframe - Updates">https://raw.githubusercontent.com/hoochicken/mod_qliframe/main/_jupdate/mod_qlform.xml</server>
