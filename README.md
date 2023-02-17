@@ -8,7 +8,7 @@ External scripts an iframe are NOT loaded until the full click number is given.
 * Texts for information
 * Button to your websit's privacy policy
 * Placeholder image can be added: 
-  * predefined (youtube, vimeo, google maps) 
+  * predefined (maps, video, youtube, vimeo) 
   * custom
 
 Easy to handle, enjoy :-)
