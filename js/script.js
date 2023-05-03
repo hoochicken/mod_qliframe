@@ -17,7 +17,6 @@ function qliframeLoadIframe1ClickSolution(uniquefier, iframe_url, iframe_attribu
 {
   // get id of iframe
   let iframeId = 'qliframe_iframe_' + uniquefier;
-
   qliframeDisplayElementById(iframeId);
 
   // some scripte need to be loaded aditionally to iframe
@@ -27,6 +26,10 @@ function qliframeLoadIframe1ClickSolution(uniquefier, iframe_url, iframe_attribu
 
   // build iframe html, actually add the html of the iframe
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
+
+  // disable button
+  let buttonId = 'qliframe_button_' + uniquefier;
+  qliframeDisableButton(buttonId);
 }
 
 /**
@@ -56,6 +59,10 @@ function qliframeLoadIframe2ClickSolution(uniquefier, iframe_url, iframe_attribu
 
   // build iframe html, actually add the html of the iframe
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
+
+  // disable button
+  let buttonId = 'qliframe_button_' + uniquefier;
+  qliframeDisableButton(buttonId);
 }
 
 /**
@@ -92,6 +99,10 @@ function qliframeLoadIframe3ClickSolution(uniquefier, iframe_url, iframe_attribu
 
   // build iframe html, actually add the html of the iframe
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
+
+  // disable button
+  let buttonId = 'qliframe_button_' + uniquefier;
+  qliframeDisableButton(buttonId);
 }
 
 /**
@@ -140,6 +151,10 @@ function qliframeLoadIframe100ClickSolution(uniquefier, iframe_url, iframe_attri
 
   // build iframe html, actually add the html of the iframe
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
+
+  // disable button
+  let buttonId = 'qliframe_button_' + uniquefier;
+  qliframeDisableButton(buttonId);
 }
 
 /**
@@ -257,4 +272,14 @@ function qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes)
 function qliframeEmptyWrapper(iframeId)
 {
   document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+}
+
+/**
+ * checks whether privacy is read
+ * removes button property 'disabled' from "Display map"-button
+ * @returns {boolean}
+ */
+function qliframeDisableButton(buttonId)
+{
+  document.getElementById(buttonId).disabled = 'true';
 }
