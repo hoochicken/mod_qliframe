@@ -46,47 +46,47 @@ $onclick = sprintf($onclick, $clicksolution, $unique, $iframe_url, $iframe_attri
 ?>
 <div class="qliframe wrapper">
     <?php if ('top' === $iframe_position) : ?>
-        <div class="qliframe iframe_wrapper <?php echo empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
+        <div class="qliframe iframe_wrapper  <?= empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_ <?= $unique; ?>">
             <?php if (1 <= $clicksolution && !empty($image)) : ?>
-                <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
+                <input  <?= $iframebuttonDisabled; ?> type="image"  <?= $imageSrcAttribute; ?>  id="qliframe_button_image_ <?= $unique; ?>" onclick=" <?= $onclick; ?>" class="qliframe_button" />
             <?php endif; ?>
             <?php if (0 === $clicksolution) : ?>
-                <iframe id="qliframe_frame_<?php echo $unique; ?>" src="<?php echo $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
+                <iframe id="qliframe_frame_ <?= $unique; ?>" src=" <?= $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
             <?php endif; ?>
         </div>
     <?php endif; ?>
 
     <?php if ($infotextDisplay) : ?>
-        <div class="info"><?php echo $infotext; ?></div>
+        <div class="info"> <?= $infotext; ?></div>
     <?php endif; ?>
 
     <?php if (3 <= $clicksolution) : ?>
         <div class="privacyReadText">
-            <input type="checkbox" value="1" onchange="qliframeEnableButton('<?php echo $unique; ?>')" name="qliframe_readprivacy_<?php echo $unique; ?>" id="qliframe_readprivacy_<?php echo $unique; ?>"/>
-            <label for="qliframe_readprivacy_<?php echo $unique; ?>"><?php echo $privacyReadText; ?></label>
+            <input type="checkbox" value="1" onchange="qliframeEnableButton(' <?= $unique; ?>')" name="qliframe_readprivacy_ <?= $unique; ?>" id="qliframe_readprivacy_ <?= $unique; ?>"/>
+            <label for="qliframe_readprivacy_ <?= $unique; ?>"> <?= $privacyReadText; ?></label>
         </div>
     <?php endif; ?>
     <div class="buttons">
         <?php if ($privacybutton) : ?>
-            <button class="btn btn-secondary privacy-button" onclick="window.open('<?php echo $privacylinkRoute; ?>', '_blank')">
-                <?php echo $privacybuttonlabel; ?>
+            <button class="btn btn-secondary privacy-button" onclick="window.open(' <?= $privacylinkRoute; ?>', '_blank')">
+                 <?= $privacybuttonlabel; ?>
             </button>
         <?php endif; ?>
 
         <?php if (1 <= $clicksolution) : ?>
-            <button class="btn btn-primary iframe-button" <?php echo $iframebuttonDisabled; ?> id="qliframe_button_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button">
-                <?php echo $iframebuttonlabel; ?>
+            <button class="btn btn-secondary iframe-button qliframe_button"  <?= $iframebuttonDisabled; ?> id="qliframe_button_ <?= $unique; ?>" onclick=" <?= $onclick; ?>">
+                 <?= $iframebuttonlabel; ?>
             </button>
         <?php endif; ?>
     </div>
 
     <?php if ('bottom' === $iframe_position) : ?>
-    <div class="qliframe iframe_wrapper <?php echo empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_<?php echo $unique; ?>">
+    <div class="qliframe iframe_wrapper  <?= empty($image) && $clicksolution ? 'qliframe_empty' : ''; ?>" id="qliframe_iframe_ <?= $unique; ?>">
         <?php if (1 <= $clicksolution && !empty($image)) : ?>
-            <input <?php echo $iframebuttonDisabled; ?> type="image" <?php echo $imageSrcAttribute; ?>  id="qliframe_button_image_<?php echo $unique; ?>" onclick="<?php echo $onclick; ?>" class="qliframe_button" />
+            <input  <?= $iframebuttonDisabled; ?> alt=" <?= $iframebuttonlabel; ?>" class="qliframe_button" type="image"  <?= $imageSrcAttribute; ?>  id="qliframe_button_image_ <?= $unique; ?>" onclick=" <?= $onclick; ?>" />
         <?php endif; ?>
         <?php if (0 === $clicksolution) : ?>
-            <iframe id="qliframe_frame_<?php echo $unique; ?>" src="<?php echo $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
+            <iframe id="qliframe_frame_ <?= $unique; ?>" alt=" <?= $iframebuttonlabel; ?>" src=" <?= $iframe_url; ?>" class="qliframe" style="border:0;" allowfullscreen></iframe>
         <?php endif; ?>
     </div>
     <?php endif; ?>
