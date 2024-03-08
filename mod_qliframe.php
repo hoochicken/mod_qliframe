@@ -1,23 +1,34 @@
 <?php
 /**
  * @package        mod_qliframe
- * @copyright    Copyright (C) 2023 ql.de All rights reserved.
+ * @copyright    Copyright (C) 2024 ql.de All rights reserved.
  * @author        Mareike Riegel mareike.riegel@ql.de
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
+
+namespace Ql\Module\Qliframe\Site;
 
 // no direct access
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\WebAsset\WebAssetManager;
+use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\HTML\Registry;
+use ModQliframeHelper;
 
-/** @var $params JRegistry */
-/** @var $module stdClass */
+/** @var $params Registry */
+/** @var $module \stdClass */
 
-require_once dirname(__FILE__) . '/helper.php';
-$obj_helper = new modQliframeHelper($module, $params, Factory::getApplication()->getDocument()->getWebAssetManager());
+require_once __DIR__ . '/helper.php';
+require_once __DIR__ . '/php/classes/ModQliframeCachier.php';
+$obj_helper = new ModQliframeHelper($module, $params, Factory::getApplication()->getDocument()->getWebAssetManager());
+
+$input = Factory::getApplication()->input;
+$qliframe_reset_cache = (bool)$input->getBool('qliframe_reset_cache', 0);
+if ($qliframe_reset_cache) {
+    ModQliframeHelper::resetQliframeCacheAjax();
+}
+
 $array = $obj_helper->initiateParams();
 extract($array);
 
@@ -27,4 +38,4 @@ if (empty($iframe_url)) return;
 // add styles to DOM and scripts as well
 $obj_helper->addStylesAndScripts($clicksolution, $scripts_afterclickloaded);
 
-require JModuleHelper::getLayoutPath('mod_qliframe', $params->get('layout', 'default'));
+require ModuleHelper::getLayoutPath('mod_qliframe', $params->get('layout', 'default'));

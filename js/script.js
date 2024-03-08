@@ -1,6 +1,6 @@
 /*
 @package		mod_qliframe
-@copyright	Copyright (C) 2023 ql.de All rights reserved.
+@copyright	Copyright (C) 2024 ql.de All rights reserved.
 @author 		Mareike Riegel mareike.riegel@ql.de
 @license		GNU General Public License version 2 or later; see LICENSE.txt
 */
@@ -25,11 +25,14 @@ function qliframeLoadIframe1ClickSolution(uniquefier, iframe_url, iframe_attribu
   qliframeHideImagebutton(uniquefier);
 
   // build iframe html, actually add the html of the iframe
+  qliframeEmptyWrapper(iframeId);
   qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes);
 
   // disable button
   let buttonId = 'qliframe_button_' + uniquefier;
-  qliframeDisableButton(buttonId);
+  // qliframeDisableButton(buttonId);
+
+  recieveQliframeAjax(iframe_url);
 }
 
 /**
@@ -63,6 +66,8 @@ function qliframeLoadIframe2ClickSolution(uniquefier, iframe_url, iframe_attribu
   // disable button
   let buttonId = 'qliframe_button_' + uniquefier;
   qliframeDisableButton(buttonId);
+
+  recieveQliframeAjax(iframe_url);
 }
 
 /**
@@ -265,13 +270,12 @@ function qliframeAppendIframeToWrapper(iframeId, iframe_url, iframe_attributes)
 }
 
 /**
- * checks whether privacy is read
- * removes button property 'disabled' from "Display map"-button
- * @returns {boolean}
+ * does something
  */
 function qliframeEmptyWrapper(iframeId)
 {
-  document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+  // document.getElementById(iframeId).insertAdjacentHTML('beforeend', '');
+  document.getElementById(iframeId).innerHTML = '';
 }
 
 /**
@@ -282,4 +286,52 @@ function qliframeEmptyWrapper(iframeId)
 function qliframeDisableButton(buttonId)
 {
   document.getElementById(buttonId).disabled = 'true';
+}
+
+function recieveQliframeAjax(iframe_url)
+{
+  let data = {iframe_url: iframe_url};
+  let url = 'index.php?option=com_ajax&module=qliframe&method=recieveQliframe&format=json';
+  let objParams = {
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    format: 'raw',
+    method: 'post',
+    data: data,
+    async: true,
+    success: function (result) {
+      let moduleId = result.data.moduleId;
+      let function_name = 'qlformAfterSend_' + moduleId;
+      window[function_name](moduleId);
+    },
+    error: function (result) {
+
+    }
+  };
+  jQuery.ajax(objParams);
+}
+
+function resetQliframeCacheAjax(iframe_url)
+{
+  let data = {iframe_url: iframe_url};
+  let url = 'index.php?option=com_ajax&module=qliframe&method=resetQliframeCache&format=json';
+  let objParams = {
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    format: 'raw',
+    method: 'post',
+    data: data,
+    async: true,
+    success: function (result) {
+      let moduleId = result.data.moduleId;
+      let function_name = 'qlformAfterSend_' + moduleId;
+      window[function_name](moduleId);
+    },
+    error: function (result) {
+
+    }
+  };
+  jQuery.ajax(objParams);
 }
