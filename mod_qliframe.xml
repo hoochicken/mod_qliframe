@@ -10,7 +10,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>mareike.riegel@ql.de</authorEmail>
 	<authorUrl>ql.de</authorUrl>
-	<version>1.6.0</version>
+	<version>1.6.1</version>
 	<description>MOD_QLIFRAME_XML_DESCRIPTION</description>
 	<updateservers>
 		<server type="extension" priority="1" name="qliframe - Updates">https://github.com/hoochicken/mod_qliframe/blob/main/_jupdate/mod_qliframe.xml</server>
@@ -90,8 +90,8 @@
 					name="iframe_cache"
 					type="radio"
 					class="btn-group btn-group-yesno"
-					label="MOD_QLIFRAME_IFRAMECACHE_LABEL"
-					description="MOD_QLIFRAME_IFRAMECACHE_DESC"
+					label="MOD_QLIFRAME_CACHE_LABELLABEL"
+					description="MOD_QLIFRAME_CACHE_LABELDESC"
 					default="1">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
